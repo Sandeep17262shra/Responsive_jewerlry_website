@@ -1,3 +1,5 @@
+
+//Animation 1
 const circular_slider = document.querySelector(".wrapper"),
   slides = document.querySelectorAll(".slides"),
   images = document.querySelectorAll(".slides img"),
@@ -23,6 +25,8 @@ slides.forEach((slide, i) => {
   };
 });
 
+
+//Animation 2
 const cards = Array.from(document.querySelectorAll(".card"));
 const slider = document.getElementById("slider");
 const pagination = document.getElementById("pagination");
