@@ -19,6 +19,7 @@ body {
 .logo {
   font-size: 1.5rem;
 }
+
 .logo span {
   font-weight: bold;
 }
@@ -44,6 +45,41 @@ body {
   height: 25px;
   width: 25px;
 }
+@media screen and (max-width: 850px) {
+  .nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: column;
+    max-width: 90%;
+    margin: 0 auto;
+    align-items: center;
+  }
+  .logo {
+    font-size: 3rem;
+  }
+  .menu {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .search-cont {
+    display: flex;
+    width: 90%;
+    justify-content: end;
+    align-items: end;
+  }
+  .lower-bar {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 1rem 1rem;
+  }
+}
 .lower-bar {
   max-width: 90%;
   margin: 0 auto;
@@ -62,11 +98,11 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-/*Animation 1 CSS Start*/
+/* Animation 1 CSS Start*/
 :root {
   --dark-blue: #fff;
-  --slider-height: 40rem;
+  --slider-width: 100vw;
+  --slider-height: calc(var(--slider-width) / 2);
   --half-slider-height: calc(var(--slider-height) / 2);
 }
 * {
@@ -78,6 +114,9 @@ body {
   list-style: none;
 }
 .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
   background-color: var(--dark-blue);
   overflow: hidden;
@@ -112,6 +151,7 @@ body {
   white-space: pre;
   color: #616161;
 }
+
 .character-name.active {
   transform: translateY(-0%, -530%);
   opacity: 0.2;
@@ -131,7 +171,7 @@ body {
 
 .slides img {
   width: 100%;
-  transform: rotateZ(calc(360deg / -5 * var(--img-no))) scale(var(--scale, 0.8));
+  transform: rotateZ(calc(360deg / -5 * var(--img-no))) scale(var(--scale, 1));
   transform-origin: center;
   user-select: none;
   object-fit: cover;
@@ -173,24 +213,154 @@ body {
   cursor: pointer;
   border-radius: 2rem;
 }
-/* Animation 1 CSS ended*/
 
+@media screen and (max-width: 1000px) {
+  .character-name {
+    transform: translateY(-340%);
+  }
+  .slides img.active {
+    --scale: 2;
+    outline-offset: 0.5rem;
+  }
+  .descriptions {
+    position: absolute;
+    bottom: 50%;
+    height: var(--half-slider-height);
+    z-index: 100;
+  }
+  .descriptions_items {
+    width: 80%;
+    height: 0%;
+    margin: 0 auto;
+    opacity: 0;
+    display: flex;
+    font-size: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    gap: 1rem;
+  }
+  .descriptions_items.active {
+    opacity: 1;
+    height: 100%;
+  }
+  .descriptions_items button {
+    padding: 1rem 3rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 1rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  .character-name {
+    transform: translateY(-400%);
+    font: 600 3rem sans-serif;
+  }
+  .slides img.active {
+    --scale: 2.5;
+    outline-offset: 0.5rem;
+  }
+  .descriptions {
+    position: absolute;
+    bottom: 40%;
+    height: var(--half-slider-height);
+    z-index: 100;
+  }
+  .descriptions_items {
+    width: 80%;
+    height: 0%;
+    margin: 0 auto;
+    opacity: 0;
+    display: flex;
+    font-size: 0.75rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    gap: 0.5rem;
+  }
+  .descriptions_items.active {
+    opacity: 1;
+    height: 100%;
+  }
+  .descriptions_items button {
+    padding: 1rem 1rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 2rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .character-name {
+    transform: translateY(-300%);
+    font: 600 3rem sans-serif;
+  }
+  .slides img.active {
+    --scale: 4;
+    outline-offset: 0.5rem;
+  }
+  .descriptions {
+    position: absolute;
+    bottom: 30%;
+    height: var(--half-slider-height);
+    z-index: 100;
+  }
+  .descriptions_items {
+    width: 80%;
+    height: 0%;
+    margin: 0 auto;
+    opacity: 0;
+    display: flex;
+    font-size: 0.6rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    gap: 0.4rem;
+  }
+  .descriptions_items.active {
+    opacity: 1;
+    height: 100%;
+  }
+  .descriptions_items button {
+    padding: 1rem 1rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 0.6rem;
+    border-radius: 2rem;
+  }
+}
+
+/* Animation 1 CSS Start*/
+
+/* collection CSS start*/
 .collection {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 2rem;
+  padding: 4rem 2rem;
+  justify-content: center;
+  gap: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
   padding-bottom: 5rem;
   background-color: #ffffff;
   background: linear-gradient(to bottom, #ffffff 60%, #f6b79d 40%);
+  text-align: center;
 }
+
 .collection h2 {
+  display: flex;
+  justify-content: center;
   font-size: 1.8rem;
+  text-align: center;
 }
 .collection p {
   width: 50%;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
   font-size: 1.25rem;
   color: #616161;
 }
@@ -202,25 +372,100 @@ body {
   width: 80%;
 }
 .collection-grid .card-1 {
-  object-fit: fill;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25%;
+  gap: 1rem;
   background-color: #ffffff;
 }
 .card-1 img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  object-fit: fill;
 }
 .collection-div {
+  width: 100%;
   background-color: #ffffff;
+  display: flex;
   gap: 1rem;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  margin-bottom: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.collection-div h4 {
+  font-size: 1rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .collection-div h5 {
   color: #d4d4d4;
-  font-size: 12px;
+  font-size: 0.8rem;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  padding-top: 0.5rem;
 }
+@media screen and (max-width: 800px) {
+  .collection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    justify-content: center;
+    gap: 2rem;
+    padding-bottom: 5rem;
+    background-color: #ffffff;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  .collection p {
+    width: 80%;
+    font-size: 1.25rem;
+    color: #616161;
+  }
+  .collection-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+    width: 100%;
+  }
+  .collection-grid .card-1 {
+    display: flex;
+    flex-direction: column;
+    object-fit: fill;
+    width: 60%;
+    gap: 1rem;
+    border: #616161 solid 1px;
+    background-color: #ffffff;
+  }
+  .collection-div h4 {
+    font-size: 1.5rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+}
+@media screen and (max-width: 600px) {
+  .collection-grid .card-1 {
+    display: flex;
+    flex-direction: column;
+    object-fit: fill;
+    width: 80%;
+    border: #616161 solid 1px;
+    background-color: #ffffff;
+  }
+  .collection-div h4 {
+    font-size: 1rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+  .collection-div h5 {
+    color: #d4d4d4;
+    font-size: 0.8rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+}
+
+/*Collection CSS ended*/
+
 .diamond {
   display: flex;
   align-items: center;
@@ -232,8 +477,6 @@ body {
   padding-bottom: 3rem;
   background-color: #ffffff;
 }
-
-/* Animation 2 CSS start */
 .slider {
   position: relative;
   width: 90%;
@@ -341,7 +584,8 @@ body {
   background: #000;
   transform: scale(1.3);
 }
-/* Animation 2 CSS ended*/
+
+/* Subscribe CSS start */
 
 .sub-cont {
   padding-left: 5rem;
@@ -352,6 +596,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: auto;
+  gap: 3rem;
   padding-top: 10rem;
   padding-bottom: 3rem;
   padding-left: 3rem;
@@ -362,61 +607,52 @@ body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  width: 50%;
-  gap: 2rem;
+  gap: 4rem;
 }
-.subscribe .left div {
+.subscribe .right {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  object-fit: fill;
+}
+.right .photos {
+  display: flex;
+  gap: 1rem;
+}
+.right .photos img {
+  width: 50%;
+}
+.left div {
+  display: flex;
   align-items: start;
-  text-align: start;
+  flex-direction: column;
   gap: 2rem;
-  height: 50%;
-  align-self: start;
-  font-size: 1rem;
 }
 .left div h2 {
   font-size: 2rem;
 }
 .subscribe .left div p {
+  text-align: start;
   width: 80%;
   font-size: 1.4rem;
   color: #616161;
 }
-.subscribe .left form {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 1rem;
-  width: 100%;
-  height: 50%;
-}
-.subscribe .right {
-  display: flex;
-  width: 50;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.subscribe .right div {
-  display: flex;
-  gap: 1rem;
-}
-.photos img {
-  height: 200px;
-  width: 200px;
-}
 .email {
+  width: 100%;
   text-decoration: none;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
 }
 .email input {
-  width: 100%;
   border: none;
-  text-decoration: underline #616161 1px;
+  border-bottom: #151515 solid 1px;
   font-size: 1.3rem;
 }
 .email button {
-  width: 45%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -426,6 +662,111 @@ body {
   color: white;
   font-size: 1.3rem;
 }
+@media screen and (max-width: 800px) {
+  .sub-cont {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 2rem;
+  }
+  .subscribe {
+    display: flex;
+    justify-content: space-between;
+    padding: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-bottom: #151515 1px solid;
+  }
+  .subscribe .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  .left div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .left div p {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .email {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .email input {
+    width: 100%;
+    border: none;
+    border-bottom: #151515 solid 1px;
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .sub-cont {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+  }
+  .subscribe {
+    display: flex;
+    justify-content: space-between;
+    padding: auto;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    border-bottom: #151515 1px solid;
+  }
+  .right .photos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .right .photos img {
+    width: 80%;
+  }
+  .email input {
+    width: 100%;
+    border: none;
+    border-bottom: #151515 solid 1px;
+    font-size: 1rem;
+  }
+  .email button {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: black;
+    padding: 2px 2px 2px 2px;
+    color: white;
+    font-size: 1rem;
+  }
+}
+
+/* Subscribe CSS ended*/
+
+/*footer CSS start*/
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -435,35 +776,46 @@ body {
   padding-top: 4rem;
   background-color: #f9f9f9;
 }
-
-.footer div h3 {
-  font-size: 1.8rem;
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer .intro h3 {
+  font-size: 2rem;
   padding-bottom: 0.5rem;
 }
-.footer div p {
+.footer .intro p {
   color: peachpuff;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 .ending {
+  width: 60%;
   font-size: 2rem;
-  size: 2rem;
-  width: 54%;
-  font-size: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   color: #616161;
 }
 .footer .ending {
   font-size: 1.5rem;
 }
+.contact-cont {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px black solid;
+}
 .contact {
   display: flex;
   align-items: center;
-  width: 85%;
-  gap: 4rem;
-  justify-content: center;
-  border-top: 1px black;
+  width: 50%;
+  justify-content: space-between;
   text-decoration: none;
   text-decoration: #151515;
-  border-top: #151515 1px solid;
   padding-top: 2rem;
 }
 .contact-content {
@@ -474,17 +826,69 @@ body {
   color: #151515;
 }
 .lower-logo {
-  padding-top: 2rem;
-  padding-bottom: 1rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
 .lower-logo img {
-  height: 35px;
+  height: 100%;
 }
 .footer p {
+  text-align: center;
   padding-bottom: 2rem;
   font-size: 0.75rem;
 }
+@media screen and (max-width: 750px) {
+  .lower-logo {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .contact {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    justify-content: space-between;
+    text-decoration: none;
+    text-decoration: #151515;
+    padding-top: 2rem;
+  }
+}
+@media screen and (max-width: 670px) {
+  .lower-logo {
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .contact {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
+    text-decoration: none;
+    text-decoration: #151515;
+    padding-top: 2rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .lower-logo {
+    opacity: 0;
+  }
+  .contact {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-between;
+    text-decoration: none;
+    text-decoration: #151515;
+    padding-top: 2rem;
+  }
+}
+
+/*footer CSS ended*/
